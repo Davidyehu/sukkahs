@@ -8,7 +8,7 @@ export const dynamicParams = false;
 
 export async function generateStaticParams() {
   return scenarios.map((scenario) => ({
-    params: { slug: scenario.slug },
+    slug: scenario.slug,
   }));
 }
 
