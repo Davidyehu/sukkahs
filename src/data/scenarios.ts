@@ -11,6 +11,7 @@ type Scenario = {
         pointLightPosition: [number, number, number];
         walls?: number;
         schach?: number;
+        ruler?: boolean;
     };
 };
 
@@ -26,6 +27,7 @@ const scenarios: Scenario[] = [
             },
             pointLightIntensity: 100,
             pointLightPosition: [0, 15, 0],
+            ruler: true,
         }
     },
     {
@@ -39,6 +41,7 @@ const scenarios: Scenario[] = [
             },
             pointLightIntensity: 50,
             pointLightPosition: [0, 7, 0],
+            ruler: true,
         }
     },
     {

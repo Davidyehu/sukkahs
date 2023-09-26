@@ -3,6 +3,7 @@ import scenarios from "@/data/scenarios";
 import MainCanvas from "@/components/three-components/canvas";
 import styles from "./page.module.scss";
 import Sukkah from "@/components/three-components/sukkah";
+import Ruler from "@/components/three-components/ruler";
 
 export const dynamicParams = false;
 
@@ -33,11 +34,25 @@ export default function Halacha({ params }: { params: { slug: string } }) {
               walls={scenario.props.walls}
               schach={scenario.props.schach}
             />
+            {scenario.props.ruler ? (
+              <Ruler
+                dimensions={{ width: 2, height: 20, depth: 0.1 }}
+                position={[10, 0, 0]}
+              />
+            ) : (
+              <></>
+            )}
           </MainCanvas>
         ) : (
           "Loading..."
         )}
       </div>
+      {scenario?.props.ruler ? (
+        <p>Units on ruler can be either amos or tefachim.</p>
+      ) : (
+        <></>
+      )}
+      <p>Left click to orbit, Right click to pan, mouse wheel to zoom.</p>
     </div>
   );
 }
