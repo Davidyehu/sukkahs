@@ -25,7 +25,6 @@ export default function Lighting() {
         shadow-camera-top={100}
         shadow-camera-bottom={-100}
       />
-
       {directionalLightHelperState && (
         // <directionalLightHelper args={[directionalLightHelperState, 1]} />
         <></>
