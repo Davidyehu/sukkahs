@@ -24,7 +24,7 @@ export default function MainCanvas({
   return (
     <Canvas
       shadows
-      camera={{ fov: 75, near: 0.1, far: 1000, position: [0, 30, 30] }}
+      camera={{ fov: 75, near: 0.1, far: 1000, position: [0, 25, 30] }}
     >
       <OrbitControls />
       <pointLight intensity={pointLightIntensity} position={pointLightPosition} />
@@ -39,7 +39,7 @@ export default function MainCanvas({
         shadow-camera-top={100}
         shadow-camera-bottom={-100}
       />
-      <ambientLight intensity={1} position={[0, 0, 0]}/>
+      <ambientLight intensity={.2} position={[0, 0, 0]}/>
       {directionalLightHelperState && (
         // <directionalLightHelper args={[directionalLightHelperState, 1]} />
         <></>

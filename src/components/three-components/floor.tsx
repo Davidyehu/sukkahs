@@ -1,7 +1,12 @@
 "use client";
+import dynamic from "next/dynamic";
 import React from "react";
 
-export default function Floor(props: any) {
+const RealFloor = dynamic(() => import('./real-grass'), {
+  loading: () => <Floor />,
+})
+
+function Floor() {
   return (
     <mesh rotation-x={-Math.PI / 2} position={[0, 0, -0.1]} receiveShadow>
       <planeGeometry args={[100, 100]} />
@@ -9,3 +14,5 @@ export default function Floor(props: any) {
     </mesh>
   );
 }
+
+export default RealFloor;
