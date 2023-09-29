@@ -1,10 +1,8 @@
 "use client";
 import { Canvas } from "@react-three/fiber";
 import React, { useEffect, useRef, useState } from "react";
-import Lighting from "./lighting";
 import { OrbitControls, Sky } from "@react-three/drei";
 import Floor from "./floor";
-import Ruler from "./ruler";
 
 export default function MainCanvas({
   children,

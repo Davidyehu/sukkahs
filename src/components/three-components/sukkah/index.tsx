@@ -1,8 +1,9 @@
 "use client";
-import React, { useEffect, useRef } from "react";
-import { useLoader } from "@react-three/fiber";
-import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
-import { Group, Object3DEventMap } from "three";
+import dynamic from "next/dynamic";
+import React from "react";
+const Tree = dynamic(() => import('../tree'), {
+  loading: () => <></>,
+})
 
 type SukkahProps = {
   dimensions: { width: number; depth: number; height: number };
@@ -12,18 +13,9 @@ type SukkahProps = {
 
 export default function Sukkah({ dimensions, walls, schach }: SukkahProps) {
   const schachWidth =
-    schach == undefined || schach == 1
-      ? dimensions.width + 1
-      : (dimensions.width + 1) * schach;
-
-  const treeRef = useRef<Group<Object3DEventMap>>();
-
-  const tree = useLoader(GLTFLoader, "/3D-models/tree_small_02_4k.gltf/tree_small_02_4k.gltf");
-
-  useEffect(() => {
-    tree.scene.scale.set(5, 5, 5);
-  }
-  , [tree]);
+  schach == undefined || schach == 1
+  ? dimensions.width + 1
+  : (dimensions.width + 1) * schach;
 
   return (
     <group position={[0, dimensions.height / 2, 0]}>
@@ -79,9 +71,7 @@ export default function Sukkah({ dimensions, walls, schach }: SukkahProps) {
       </mesh>
 
       {/* Tree */}
-      {tree ? <group  position={[-15, -dimensions.height / 2, 0]}>
-        <primitive object={tree.scene} />
-      </group> : <></>}
+      <Tree dimensions={dimensions} />
     </group>
   );
 }
